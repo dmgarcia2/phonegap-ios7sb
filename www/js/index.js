@@ -1,21 +1,19 @@
-/*
-App-o-Mat jQuery Mobile Cordova starter template
-https://github.com/app-o-mat/jqm-cordova-template-project
-http://app-o-mat.com
+"use strict";
 
-MIT License
-https://github.com/app-o-mat/jqm-cordova-template-project/LICENSE.md
-*/
+var application = {};
 
-var appomat = {};
-
-appomat.app = {
+application.app = {
 	
     initialize: function() {
 		document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 
     onDeviceReady: function() {
+    	if (device.platform === 'iOS' && parseInt(device.version) === 7) {
+			StatusBar.overlaysWebView(false);
+			StatusBar.backgroundColorByName("black");
+    	}
+
 		FastClick.attach(document.body);
     }
 
